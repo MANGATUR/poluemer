@@ -1,0 +1,17 @@
+
+[
+  {
+    "id": 1,
+    "title": "Tutorial Gitar Pemula",
+    "thumbnail": "thumb1.jpg",
+    "file": "videos/video1.mp4",
+    "category": "musik"
+  },
+  {
+    "id": 2,
+    "title": "Belajar HTML dari Nol",
+    "thumbnail": "thumb2.jpg",
+    "file": "videos/video2.mp4",
+    "category": "edukasi"
+  }
+]

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Poluemer - Tonton Video</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>🎥 Poluemer</h1></header>
+  <main>
+    <video id="videoPlayer" width="100%" height="auto" controls></video>
+    <h2 id="videoTitle">Judul Video</h2>
+    <section>
+      <h3>Komentar</h3>
+      <textarea id="commentInput" placeholder="Tulis komentar..."></textarea><br>
+      <button onclick="postComment()">Kirim</button>
+      <ul id="commentList"></ul>
+    </section>
+  </main>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = parseInt(urlParams.get('id'));
+    fetch('data/videos.json')
+      .then(res => res.json())
+      .then(data => {
+        const video = data.find(v => v.id === id);
+        if (video) {
+          document.getElementById('videoPlayer').src = video.file;
+          document.getElementById('videoTitle').textContent = video.title;
+        }
+        loadComments(id);
+      });
+    function postComment() {
+      const comment = document.getElementById('commentInput').value;
+      if (!comment.trim()) return;
+      const comments = JSON.parse(localStorage.getItem('comments_' + id)) || [];
+      comments.push(comment);
+      localStorage.setItem('comments_' + id, JSON.stringify(comments));
+      document.getElementById('commentInput').value = '';
+      loadComments(id);
+    }
+    function loadComments(id) {
+      const comments = JSON.parse(localStorage.getItem('comments_' + id)) || [];
+      const list = document.getElementById('commentList');
+      list.innerHTML = "";
+      comments.forEach(c => {
+        const li = document.createElement('li');
+        li.textContent = c;
+        list.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: linear-gradient(to right, #1d2b64, #f8cdda);
+  background-attachment: fixed;
+  background-size: cover;
+  color: #333;
+}
+
+header {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+#search {
+  padding: 10px;
+  margin-top: 15px;
+  width: 80%;
+  max-width: 400px;
+  border: none;
+  border-radius: 5px;
+}
+
+nav {
+  text-align: center;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+nav button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  background: #6a11cb;
+  background: linear-gradient(to right, #2575fc, #6a11cb);
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+nav button:hover {
+  background: #005bb5;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.video-card {
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.video-card:hover {
+  transform: scale(1.03);
+}
+
+.video-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.video-card h3 {
+  margin: 10px 0 0;
+  font-size: 1.1em;
+  color: #333;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 0.9em;
+}
